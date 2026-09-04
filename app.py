@@ -4,7 +4,7 @@ import os
 # 1. पेज की पूरी प्रीमियम VLVIP रोमांटिक सेटिंग (No Scroll)
 st.set_page_config(page_title="Happy Birthday My Love!", page_icon="❤️", layout="centered")
 
-# 2. एडवांस ऑप्टिमाइज्ड CSS (बड़ा आलीशान नियॉन हार्ट बॉक्स और चमकते कोट्स)
+# 2. एडवांस ऑल-इन-वन एनिमेटेड CSS (मोटी बाउंड्री वाला धड़कता दिल और आर-पार सुनहरा तीर)
 custom_css = """
 <style>
     /* ऐप का शानदार डार्क रोमांटिक बैकग्राउंड */
@@ -100,19 +100,19 @@ custom_css = """
         width: auto !important;
     }
 
-    /* जादू: फ़ोटो के दाईं तरफ एक बड़ा, सीधा और आलीशान 3D नियॉन लव हार्ट बॉक्स */
+    /* जादू: फ़ोटो के दाईं तरफ एक बड़ा, सीधा और मोटी बाउंड्री वाला धड़कता हुआ लव हार्ट बॉक्स */
     .stImage::after {
         content: "11 💖 YRS\\A OF 🌹 LOVE\\A MY 💍 WIFE\\A MY  BABU\\A MY 💞 JAAN\\A MY 🧸 LIFE";
         white-space: pre-wrap;
         position: absolute;
-        top: -10px; /* थोड़ा ऊपर ताकि सारा टेक्स्ट अच्छे से फिट हो */
+        top: -10px;
         right: -140px; /* खाली जगह को कवर करने के लिए सटीक पोजीशन */
-        width: 125px; /* चौड़ाई बढ़ा दी */
-        height: 125px; /* ऊँचाई बढ़ा दी */
+        width: 125px;
+        height: 125px;
         
-        /* कोडिंग से बिल्कुल परफेक्ट और बड़ा सीधा दिल बनाने का फ़ॉर्मूला */
-        background: radial-gradient(circle, rgba(255, 0, 85, 0.25) 40%, rgba(15, 0, 3, 0.6) 100%);
-        border: 2px solid #ff0055;
+        /* मोटी बाउंड्री (4px solid) और सीधा रखने का सॉलिड फ़ॉर्मूला */
+        background: radial-gradient(circle, rgba(255, 0, 85, 0.35) 40%, rgba(15, 0, 3, 0.7) 100%);
+        border: 4px solid #ff0055; /* बाउंड्री और मोटी कर दी */
         border-radius: 50% 50% 0 50%;
         transform: rotate(-45deg);
         
@@ -126,27 +126,49 @@ custom_css = """
         align-items: center;
         justify-content: center;
         
-        /* एनीमेशन: बड़ा दिल धीरे-धीरे धड़केगा (Heartbeat Animation) */
-        animation: bigHeartPulse 1.5s ease-in-out infinite alternate;
-        box-shadow: 0px 0px 30px rgba(255, 0, 85, 0.7);
+        /* एनीमेशन: बड़ा दिल तेजी से धड़केगा (Heartbeat Animation) */
+        animation: thickHeartPulse 1.2s ease-in-out infinite alternate;
+        box-shadow: 0px 0px 35px #ff0055, inset 0px 0px 15px #ff0055;
         z-index: 15;
     }
 
-    /* बड़े दिल के अंदर टेक्स्ट और रोटेशन का स्पेशल एनीमेशन */
-    @keyframes bigHeartPulse {
+    /* जादू 2: दिल के आर-पार निकलने वाला असली लव तीर (Arrow Animation Effect) */
+    .stImage::before {
+        content: "💘────────>"; /* कोडिंग का लंबा तीर */
+        position: absolute;
+        top: 50px;
+        right: -170px; /* दिल के पीछे से आर-पार सेट */
+        font-size: 1.6rem;
+        font-weight: bold;
+        background: linear-gradient(45deg, #FFD700, #ffaa00);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 0 10px #ffaa00;
+        z-index: 14; /* दिल के ठीक पीछे रखने के लिए */
+        transform: rotate(-15deg); /* हल्का सा तिरछा तीर */
+        animation: arrowGlow 1.2s ease-in-out infinite alternate;
+    }
+
+    @keyframes arrowGlow {
+        0% { filter: drop-shadow(0 0 2px #ffaa00); }
+        100% { filter: drop-shadow(0 0 8px #FFD700); }
+    }
+
+    /* मोटी बाउंड्री वाले दिल के अंदर का स्पेशल हार्टबीट एनीमेशन */
+    @keyframes thickHeartPulse {
         0% { 
-            transform: scale(0.97) rotate(-45deg); 
-            filter: drop-shadow(0 0 5px #ff0055);
+            transform: scale(0.95) rotate(-45deg); 
+            box-shadow: 0px 0px 15px #ff0055;
             color: #ffffff;
         }
         100% { 
-            transform: scale(1.03) rotate(-45deg); 
-            filter: drop-shadow(0 0 18px #FFD700);
+            transform: scale(1.05) rotate(-45deg); 
+            box-shadow: 0px 0px 35px #ff0055, 0px 0px 15px #FFD700;
             color: #FFD700; /* धड़कते समय सारे अक्षर सुनहरे चमकेंगे */
         }
     }
 
-    /* नीचे का प्रीमियम ग्लास कोट्स बॉक्स जिसके सारे टेक्स्ट लाइव पानी की लहर की तरह चमकेंगे */
+    /* नीचे का प्रीमियम ग्लास कोट्स बॉक्स जिसके सारे टेक्स्ट अब लाइव पानी की लहर की तरह चमकेंगे */
     .wishes-container {
         background: rgba(255, 0, 85, 0.04);
         border-radius: 15px;
@@ -195,7 +217,7 @@ custom_css = """
 """
 st.markdown(custom_css, unsafe_allow_html=True)
 
-# 3. नाम प्रॉम्ट सेटिंग
+# 3. नाम प्रॉम्ट设置
 query_params = st.query_params
 sender = query_params.get("name", "PRABHAT")
 receiver = query_params.get("to", "LAXMI")
@@ -239,13 +261,4 @@ st.markdown(
         <p class="wish-text">💫 <span class="wish-highlight">5. Deepest Love:</span> "In all the world, there is no heart for me like yours. In all the world, there is no love for you like mine." 🌟</p>
         <p class="wish-text">🧸 <span class="wish-highlight">6. Meri Mannat:</span> खुदा से जब भी मैंने कोई दुआ मांगी है, हर दुआ में सिर्फ और सिर्फ तुम्हारी लंबी उम्र और खुशी मांगी है। 🎂</p>
         <p class="wish-text">👑 <span class="wish-highlight">7. Queen of My Heart:</span> "You are my today, my tomorrow, and my forever. Happy Birthday to the queen of my world!" 💖</p>
-        <p class="wish-text">💞 <span class="wish-highlight">8. Rooh Ka Rishta:</span> 11 साल में वक्त बदला, दुनिया बदली, पर तुम्हारे लिए मेरी आँखों में जो मोहब्बत थी, वो आज भी वैसी ही जवान है। 💍</p>
-        <p class="wish-text">🪈 <span class="wish-highlight">9. My Lifeline:</span> "Every single day spent with you feels like a blessing. Thank you for being my strength and my happiness." 🕊️</p>
-        <p class="wish-text">🎯 <span class="wish-highlight">10. Aakhiri Khwahish:</span> हर जनम में मुझे सिर्फ और सिर्फ तुम्हारा ही साथ चाहिए, तुम ही मेरी पहली और आखिरी मोहब्बत हो जानू! 🥰</p>
-    </div>
-    """, 
-    unsafe_allow_html=True
-)
-
-# 6. पुराना नॉर्मल सेफ स्नोफॉल (क्रैश-फ्री)
-st.snow()
+        
