@@ -4,20 +4,19 @@ import os
 # 1. पेज की पूरी प्रीमियम VLVIP रोमांटिक सेटिंग (No Scroll)
 st.set_page_config(page_title="Happy Birthday My Love!", page_icon="❤️", layout="centered")
 
-# 2. एडवांस ऑप्टिमाइज्ड CSS (11 साल के प्यार का जिक्र और नियॉन ग्लो इफ़ेक्ट)
+# 2. एडवांस ऑप्टिमाइज्ड CSS (10 कोट्स, इंग्लिश बैज और बड़ी साइड लड़ी)
 custom_css = """
 <style>
     /* ऐप का शानदार डार्क रोमांटिक बैकग्राउंड */
     .stApp {
         background: linear-gradient(135deg, #0f0003 0%, #2a0007 50%, #4d004f 100%) !important;
         color: #ffffff;
-        overflow: hidden !important;
     }
     
     /* मुख्य कंटेनर मोबाइल स्क्रीन के लिए */
     .block-container {
         padding-top: 2.2rem !important;
-        padding-bottom: 0rem !important;
+        padding-bottom: 2rem !important;
         max-width: 450px !important;
     }
     
@@ -72,10 +71,10 @@ custom_css = """
         display: inline-block;
     }
 
-    /* फोटो के ऊपर और नीचे चमकने वाले शानदार रोमांटिक नियॉन टेक्स्ट बॉक्स */
+    /* फोटो के ऊपर और नीचे चमकने वाले शानदार रोमांटिक इंग्लिश बैज */
     .romantic-badge {
         font-family: 'Georgia', serif;
-        font-size: 1.25rem;
+        font-size: 1.2rem;
         font-weight: bold;
         text-align: center;
         margin: 10px auto;
@@ -97,21 +96,21 @@ custom_css = """
         border: 2px solid rgba(255, 0, 85, 0.5) !important;
         box-shadow: 0px 0px 25px #ff0055, 0px 0px 10px #ff80b3 !important;
         animation: romanticFloat 4s ease-in-out infinite;
-        max-height: 240px !important;
+        max-height: 250px !important;
         width: auto !important;
     }
 
-    /* फ़ोटो के दाईं तरफ 11 साल के खूबसूरत सफर और प्यार की लड़ी */
+    /* फ़ोटो के दाईं तरफ 11 साल का सफर + WIFE, BABU, JAAN, QUEEN की बड़ी प्रीमियम लड़ी */
     .stImage::after {
-        content: "11 💖 YEARS\\A OF 🌹 LOVE\\A MY 👑 QUEEN\\A MY 🧸 LIFE";
+        content: "11 💖 YEARS\\A OF 🌹 LOVE\\A MY 💍 WIFE\\A MY  BABU\\A MY 💞 JAAN\\A MY 👑 QUEEN\\A MY 🧸 LIFE";
         white-space: pre-wrap;
         position: absolute;
-        top: 20px;
-        right: -135px; /* मोबाइल स्क्रीन पर टेक्स्ट की पोजीशन फिक्स */
+        top: -5px; /* ऊपर सरका दिया ताकि ज़्यादा टेक्स्ट फिट हो सके */
+        right: -135px;
         font-family: 'Georgia', serif;
-        font-size: 1.1rem;
+        font-size: 0.95rem; /* थोड़ा छोटा किया ताकि स्क्रीन से बाहर न जाए */
         font-weight: bold;
-        line-height: 2.2;
+        line-height: 1.8;
         text-align: center;
         background: linear-gradient(45deg, #ff0055, #FFD700, #00ffcc);
         background-size: 200% auto;
@@ -125,22 +124,28 @@ custom_css = """
         100% { transform: scale(1.02); filter: drop-shadow(0 0 12px #ff0055); }
     }
 
-    /* नीचे का प्रीमियम लव कोट्स बॉक्स (शायरी सेक्शन) */
+    /* नीचे का प्रीमियम लव कोट्स बॉक्स (10 शायरियाँ) */
     .wishes-container {
         background: rgba(255, 255, 255, 0.03);
         border-radius: 15px;
-        padding: 12px;
+        padding: 15px;
         margin-top: 15px;
         border: 1px solid rgba(255, 0, 85, 0.15);
         box-shadow: 0px 0px 20px rgba(255, 0, 85, 0.15);
-        text-align: center;
+        text-align: left; /* कोट्स पढ़ने में आसानी के लिए लेफ्ट अलाइन */
     }
     .wish-text {
         font-family: 'Georgia', serif;
         color: #ffffff;
         font-size: 1.05rem;
         line-height: 1.6;
-        margin-bottom: 10px;
+        margin-bottom: 12px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        padding-bottom: 8px;
+    }
+    .wish-text:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
     }
     .wish-highlight {
         color: #FFD700;
@@ -176,7 +181,8 @@ if sender and receiver:
 
 st.markdown("<h1 class='main-title'>🎂 Happy Birthday My Love 🎂</h1>", unsafe_allow_html=True)
 
-st.markdown('<div class="romantic-badge badge-left">❤️ तुम मेरी जान हो 🌹</div>', unsafe_allow_html=True)
+# इंग्लिश में बदला हुआ ऊपर का बैज
+st.markdown('<div class="romantic-badge badge-left">❤️ YOU ARE MY LIFE 🌹</div>', unsafe_allow_html=True)
 
 # 4. फोटो लोड होना
 all_files = os.listdir(".")
@@ -188,15 +194,23 @@ for file in all_files:
 if found_image:
     st.image(found_image, use_container_width=False)
 
-st.markdown('<div class="romantic-badge badge-right">💞 मेरा सब कुछ तुम हो 🧸</div>', unsafe_allow_html=True)
+# इंग्लिश में बदला हुआ नीचे का बैज
+st.markdown('<div class="romantic-badge badge-right">💞 YOU ARE MY EVERYTHING 🧸</div>', unsafe_allow_html=True)
 
-# 5. 11 साल की अटूट मोहब्बत को बयां करने वाला बेहद रोमांटिक विशेज बॉक्स
+# 5. पूरे 10 सबसे गहरे और प्रीमियम रोमांटिक कोट्स बॉक्स
 st.markdown(
     """
     <div class="wishes-container">
-        <p class="wish-text">✨ <span class="wish-highlight">11 साल का यह हसीं सफर...</span> हर लम्हा तुम्हारे नाम रहा, मेरी ज़िंदगी की हर खुशी में सिर्फ तुम्हारा ही पैगाम रहा! 🌹</p>
-        <p class="wish-text">❤️ चेहरे पर आपके रहे हमेशा नूर, खुदा कभी न करे हमसे आपको दूर... <span class="wish-highlight">Happy Birthday Jaan! 🥰</span></p>
-        <p class="wish-text" style="color:#ff80b3; font-size: 0.95rem; margin-bottom: 0;">May our 11 years of endless love grow stronger with every passing day! I Love You! 🏹</p>
+        <p class="wish-text">✨ <span class="wish-highlight">1. 11 Years of Togetherness:</span> हमारा यह 11 साल का सफर सिर्फ एक रिश्ता नहीं, मेरी पूरी जिंदगी की सबसे खूबसूरत सच्चाई है। 🌹</p>
+        <p class="wish-text">❤️ <span class="wish-highlight">2. Forever Mine:</span> चेहरे पर आपके रहे हमेशा नूर, खुदा कभी न करे हमसे आपको दूर... Happy Birthday Jaan! 🥰</p>
+        <p class="wish-text">💘 <span class="wish-highlight">3. To My Soulmate:</span> "You are the beat of my heart, the smile on my face, and the spark in my life. I love you endlessly." 🏹</p>
+        <p class="wish-text">🌹 <span class="wish-highlight">4. अधूरी है लाइफ:</span> तुम्हारे बिना मेरी सुबह और मेरी शाम अधूरी है, सच कहूँ तो लक्ष्मी, तुम्हारे बिना मेरी पूरी जान अधूरी है! 🌸</p>
+        <p class="wish-text">💫 <span class="wish-highlight">5. Deepest Love:</span> "In all the world, there is no heart for me like yours. In all the world, there is no love for you like mine." 🌟</p>
+        <p class="wish-text">🧸 <span class="wish-highlight">6. मेरी मन्नत:</span> खुदा से जब भी मैंने कोई दुआ मांगी है, हर दुआ में सिर्फ और सिर्फ तुम्हारी लंबी उम्र और खुशी मांगी है। 🎂</p>
+        <p class="wish-text">👑 <span class="wish-highlight">7. Queen of My Heart:</span> "You are my today, my tomorrow, and my forever. Happy Birthday to the queen of my world!" 💖</p>
+        <p class="wish-text">💞 <span class="wish-highlight">8. रूह का रिश्ता:</span> 11 साल में वक्त बदला, दुनिया बदली, पर तुम्हारे लिए मेरी आँखों में जो मोहब्बत थी, वो आज भी वैसी ही जवान है। 💍</p>
+        <p class="wish-text">🪈 <span class="wish-highlight">9. My Lifeline:</span> "Every single day spent with you feels like a blessing. Thank you for being my strength and my happiness." 🕊️</p>
+        <p class="wish-text">🎯 <span class="wish-highlight">10. आखिरी ख्वाहिश:</span> हर जनम में मुझे सिर्फ और सिर्फ तुम्हारा ही साथ चाहिए, तुम ही मेरी पहली और आखिरी मोहब्बत हो जानू! 🥰</p>
     </div>
     """, 
     unsafe_allow_html=True
