@@ -4,7 +4,7 @@ import os
 # 1. पेज की पूरी प्रीमियम VLVIP रोमांटिक सेटिंग (No Scroll)
 st.set_page_config(page_title="Happy Birthday My Love!", page_icon="❤️", layout="centered")
 
-# 2. पूरी तरह ऑप्टिमाइज्ड लाइटवेट CSS (फोटो के बगल की खाली जगह को भरने के लिए)
+# 2. एडवांस ऑप्टिमाइज्ड CSS (11 साल के प्यार का जिक्र और नियॉन ग्लो इफ़ेक्ट)
 custom_css = """
 <style>
     /* ऐप का शानदार डार्क रोमांटिक बैकग्राउंड */
@@ -88,7 +88,7 @@ custom_css = """
     .badge-left { color: #ff0055; text-shadow: 0 0 8px #ff0055; }
     .badge-right { color: #FFD700; text-shadow: 0 0 8px #FFD700; }
     
-    /* इमेज का नियॉन हार्टबिट फ्रेम जो बिल्कुल सही सेट रहेगा */
+    /* इमेज का नियॉन हार्टबिट फ्रेम */
     .stImage {
         position: relative;
     }
@@ -101,19 +101,19 @@ custom_css = """
         width: auto !important;
     }
 
-    /* जादू: बिना कॉलम के सीधे HTML फॉर्मूले से फोटो के दाईं तरफ की खाली जगह को पूरी तरह भरना */
+    /* फ़ोटो के दाईं तरफ 11 साल के खूबसूरत सफर और प्यार की लड़ी */
     .stImage::after {
-        content: "❤️ LOVE ❤️\\A 🌹 JAAN 🌹\\A 👑 QUEEN 👑\\A 🧸 MY LIFE 🧸";
+        content: "11 💖 YEARS\\A OF 🌹 LOVE\\A MY 👑 QUEEN\\A MY 🧸 LIFE";
         white-space: pre-wrap;
         position: absolute;
         top: 20px;
-        right: -130px; /* खाली जगह को पूरी तरह कवर करने के लिए पोजीशन फिक्स */
+        right: -135px; /* मोबाइल स्क्रीन पर टेक्स्ट की पोजीशन फिक्स */
         font-family: 'Georgia', serif;
         font-size: 1.1rem;
         font-weight: bold;
-        line-height: 2.2; /* लाइनों के बीच सही गैप */
+        line-height: 2.2;
         text-align: center;
-        background: linear-gradient(45deg, #ff0055, #FFD700, #ff0055);
+        background: linear-gradient(45deg, #ff0055, #FFD700, #00ffcc);
         background-size: 200% auto;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -125,7 +125,7 @@ custom_css = """
         100% { transform: scale(1.02); filter: drop-shadow(0 0 12px #ff0055); }
     }
 
-    /* नीचे का प्रीमियम लव कोट्स बॉक्स */
+    /* नीचे का प्रीमियम लव कोट्स बॉक्स (शायरी सेक्शन) */
     .wishes-container {
         background: rgba(255, 255, 255, 0.03);
         border-radius: 15px;
@@ -140,6 +140,12 @@ custom_css = """
         color: #ffffff;
         font-size: 1.05rem;
         line-height: 1.6;
+        margin-bottom: 10px;
+    }
+    .wish-highlight {
+        color: #FFD700;
+        font-weight: bold;
+        text-shadow: 0px 0px 5px rgba(255, 215, 0, 0.5);
     }
 
     @keyframes romanticFloat {
@@ -172,7 +178,7 @@ st.markdown("<h1 class='main-title'>🎂 Happy Birthday My Love 🎂</h1>", unsa
 
 st.markdown('<div class="romantic-badge badge-left">❤️ तुम मेरी जान हो 🌹</div>', unsafe_allow_html=True)
 
-# 4. फोटो लोड होना (यह अपनी जगह पर रहेगी, और दाईं तरफ की पूरी खाली जगह सुंदर डिज़ाइन से भर जाएगी)
+# 4. फोटो लोड होना
 all_files = os.listdir(".")
 found_image = None
 for file in all_files:
@@ -184,12 +190,13 @@ if found_image:
 
 st.markdown('<div class="romantic-badge badge-right">💞 मेरा सब कुछ तुम हो 🧸</div>', unsafe_allow_html=True)
 
-# 5. रोमांटिक विशेज बॉक्स
+# 5. 11 साल की अटूट मोहब्बत को बयां करने वाला बेहद रोमांटिक विशेज बॉक्स
 st.markdown(
     """
     <div class="wishes-container">
-        <p class="wish-text">❤️ चेहरे पर आपके रहे हमेशा नूर, खुदा कभी न करे हमसे आपको दूर... <span style="color:#FFD700; font-weight:bold;">Happy Birthday Jaan! 🌹</span></p>
-        <p class="wish-text" style="color:#ff80b3;">✨ मेरी दुनिया, मेरी धड़कन,  मेरा सब कुछ सिर्फ तुम हो! हर जनम में मुझे सिर्फ तुम्हारा साथ चाहिए... 🥰</p>
+        <p class="wish-text">✨ <span class="wish-highlight">11 साल का यह हसीं सफर...</span> हर लम्हा तुम्हारे नाम रहा, मेरी ज़िंदगी की हर खुशी में सिर्फ तुम्हारा ही पैगाम रहा! 🌹</p>
+        <p class="wish-text">❤️ चेहरे पर आपके रहे हमेशा नूर, खुदा कभी न करे हमसे आपको दूर... <span class="wish-highlight">Happy Birthday Jaan! 🥰</span></p>
+        <p class="wish-text" style="color:#ff80b3; font-size: 0.95rem; margin-bottom: 0;">May our 11 years of endless love grow stronger with every passing day! I Love You! 🏹</p>
     </div>
     """, 
     unsafe_allow_html=True
