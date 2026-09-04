@@ -4,7 +4,7 @@ import os
 # 1. पेज की पूरी प्रीमियम VLVIP रोमांटिक सेटिंग (No Scroll)
 st.set_page_config(page_title="Happy Birthday My Love!", page_icon="❤️", layout="centered")
 
-# 2. एडवांस ऑल-इन-वन एनिमेटेड CSS (10 कोट्स को लाइव नियॉन शाइनिंग देने का फॉर्मूला)
+# 2. एडवांस ऑप्टिमाइज्ड CSS (धड़कता हुआ जादुई नियॉन लव हार्ट बॉक्स)
 custom_css = """
 <style>
     /* ऐप का शानदार डार्क रोमांटिक बैकग्राउंड */
@@ -20,7 +20,7 @@ custom_css = """
         max-width: 450px !important;
     }
     
-    /* मुख्य चमकती हेडिंग जो लगातार रंग बदलेगी */
+    /* मुख्य चमकती हेडिंग */
     .main-title {
         font-family: 'Georgia', serif;
         text-align: center;
@@ -100,31 +100,53 @@ custom_css = """
         width: auto !important;
     }
 
-    /* फ़ोटो के दाईं तरफ की बड़ी प्रीमियम नियॉन लड़ी */
+    /* जादू: फ़ोटो के दाईं तरफ एक बड़ा धड़कता हुआ जादुई नियॉन लव हार्ट बॉक्स बनाना */
     .stImage::after {
-        content: "11 💖 YEARS\\A OF 🌹 LOVE\\A MY 💍 WIFE\\A MY  BABU\\A MY 💞 JAAN\\A MY 👑 QUEEN\\A MY 🧸 LIFE";
+        content: "11💖YRS\\A WIFE\\A BABU\\A JAAN";
         white-space: pre-wrap;
         position: absolute;
-        top: -5px;
-        right: -135px;
+        top: 15px;
+        right: -140px; /* खाली जगह को कवर करने के लिए सटीक पोजीशन */
+        width: 110px;
+        height: 110px;
+        
+        /* कोडिंग से असली दिल (Heart Shape) बनाने का जादुई फॉर्मूला */
+        background: rgba(255, 0, 85, 0.2);
+        border: 2px solid #ff0055;
+        border-radius: 50% 50% 0 50%;
+        transform: rotate(-45deg);
+        
+        /* दिल के अंदर के टेक्स्ट को सीधा और सुंदर करने के लिए */
         font-family: 'Georgia', serif;
-        font-size: 0.95rem;
+        font-size: 0.85rem;
         font-weight: bold;
-        line-height: 1.8;
+        line-height: 1.6;
         text-align: center;
-        background: linear-gradient(45deg, #ff0055, #FFD700, #00ffcc);
-        background-size: 200% auto;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        animation: sideTextPulse 1.5s ease-in-out infinite alternate, textShine 4s linear infinite;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        /* एनीमेशन: दिल धड़केगा (Heartbeat) और रंग भी बदलेगा */
+        animation: heartPulseGlow 1.2s ease-in-out infinite alternate;
+        box-shadow: 0px 0px 20px rgba(255, 0, 85, 0.6);
+        z-index: 15;
     }
 
-    @keyframes sideTextPulse {
-        0% { transform: scale(0.98); filter: drop-shadow(0 0 2px #ff0055); }
-        100% { transform: scale(1.02); filter: drop-shadow(0 0 12px #ff0055); }
+    /* दिल के अंदर का टेक्स्ट रोटेशन ठीक करने के लिए हैक */
+    @keyframes heartPulseGlow {
+        0% { 
+            transform: scale(0.95) rotate(-45deg); 
+            filter: drop-shadow(0 0 5px #ff0055);
+            color: #ffffff;
+        }
+        100% { 
+            transform: scale(1.05) rotate(-45deg); 
+            filter: drop-shadow(0 0 15px #FFD700);
+            color: #FFD700; /* धड़कते समय टेक्स्ट सुनहरा चमकेगा */
+        }
     }
 
-    /* जादू: नीचे का प्रीमियम ग्लास कोट्स बॉक्स जिसके सारे टेक्स्ट अब लाइव पानी की लहर की तरह चमकेंगे */
+    /* नीचे का प्रीमियम ग्लास कोट्स बॉक्स जिसके सारे टेक्स्ट अब लाइव पानी की लहर की तरह चमकेंगे */
     .wishes-container {
         background: rgba(255, 0, 85, 0.04);
         border-radius: 15px;
@@ -135,7 +157,7 @@ custom_css = """
         text-align: left;
     }
     
-    /* हर एक विश (Quote) का टेक्स्ट लाइव एनिमेटेड ग्रेडिएंट के साथ चमकेगा */
+    /* कोट्स टेक्स्ट एनीमेशन */
     .wish-text {
         font-family: 'Georgia', serif;
         font-size: 1.05rem;
@@ -155,7 +177,6 @@ custom_css = """
         margin-bottom: 0;
     }
     
-    /* मुख्य हाइलाइट्स (जैसे नंबरिंग और इंग्लिश शब्द) सोने की तरह लाइव चमकेंगे */
     .wish-highlight {
         font-weight: bold;
         background: linear-gradient(to right, #FFD700, #ffaa00, #FFD700);
@@ -207,20 +228,20 @@ if found_image:
 
 st.markdown('<div class="romantic-badge badge-right">💞 YOU ARE MY EVERYTHING 🧸</div>', unsafe_allow_html=True)
 
-# 5. पूरे 10 जादुई और शाइनिंग रोमांटिक कोट्स बॉक्स (अब पूरी तरह लाइव कलर्ड एनिमेटेड हैं)
+# 5. पूरे 10 जादुई और शाइनिंग रोमांटिक कोट्स बॉक्स
 st.markdown(
     """
     <div class="wishes-container">
         <p class="wish-text">✨ <span class="wish-highlight">1. 11 Years of Togetherness:</span> हमारा यह 11 साल का सफर सिर्फ एक रिश्ता नहीं, मेरी पूरी जिंदगी की सबसे खूबसूरत सच्चाई है। 🌹</p>
         <p class="wish-text">❤️ <span class="wish-highlight">2. Forever Mine:</span> चेहरे पर आपके रहे हमेशा नूर, खुदा कभी न करे हमसे आपको दूर... Happy Birthday Jaan! 🥰</p>
         <p class="wish-text">💘 <span class="wish-highlight">3. To My Soulmate:</span> "You are the beat of my heart, the smile on my face, and the spark in my life. I love you endlessly." 🏹</p>
-        <p class="wish-text">🌹 <span class="wish-highlight">4. अधूरी है लाइफ:</span> तुम्हारे बिना मेरी सुबह और मेरी शाम अधूरी है, सच कहूँ तो लक्ष्मी, तुम्हारे बिना मेरी पूरी जान अधूरी है! 🌸</p>
+        <p class="wish-text">🌹 <span class="wish-highlight">4. Adhoori Hai Life:</span> तुम्हारे बिना मेरी सुबह और मेरी शाम अधूरी है, सच कहूँ तो लक्ष्मी, तुम्हारे बिना मेरी पूरी जान अधूरी है! 🌸</p>
         <p class="wish-text">💫 <span class="wish-highlight">5. Deepest Love:</span> "In all the world, there is no heart for me like yours. In all the world, there is no love for you like mine." 🌟</p>
-        <p class="wish-text">🧸 <span class="wish-highlight">6. मेरी मन्नत:</span> खुदा से जब भी मैंने कोई दुआ मांगी है, हर दुआ में सिर्फ और सिर्फ तुम्हारी लंबी उम्र और खुशी मांगी है। 🎂</p>
+        <p class="wish-text">🧸 <span class="wish-highlight">6. Meri Mannat:</span> खुदा से जब भी मैंने कोई दुआ मांगी है, हर दुआ में सिर्फ और सिर्फ तुम्हारी लंबी उम्र और खुशी मांगी है। 🎂</p>
         <p class="wish-text">👑 <span class="wish-highlight">7. Queen of My Heart:</span> "You are my today, my tomorrow, and my forever. Happy Birthday to the queen of my world!" 💖</p>
-        <p class="wish-text">💞 <span class="wish-highlight">8. रूह का रिश्ता:</span> 11 साल में वक्त बदला, दुनिया बदली, पर तुम्हारे लिए मेरी आँखों में जो मोहब्बत थी, वो आज भी वैसी ही जवान है। 💍</p>
+        <p class="wish-text">💞 <span class="wish-highlight">8. Rooh Ka Rishta:</span> 11 साल में वक्त बदला, दुनिया बदली, पर तुम्हारे लिए मेरी आँखों में जो मोहब्बत थी, वो आज भी वैसी ही जवान है। 💍</p>
         <p class="wish-text">🪈 <span class="wish-highlight">9. My Lifeline:</span> "Every single day spent with you feels like a blessing. Thank you for being my strength and my happiness." 🕊️</p>
-        <p class="wish-text">🎯 <span class="wish-highlight">10. आखिरी ख्वाहिश:</span> हर जनम में मुझे सिर्फ और सिर्फ तुम्हारा ही साथ चाहिए, तुम ही मेरी पहली and आखिरी मोहब्बत हो जानू! 🥰</p>
+        <p class="wish-text">🎯 <span class="wish-highlight">10. Aakhiri Khwahish:</span> हर जनम में मुझे सिर्फ और सिर्फ तुम्हारा ही साथ चाहिए, तुम ही मेरी पहली और आखिरी मोहब्बत हो जानू! 🥰</p>
     </div>
     """, 
     unsafe_allow_html=True
