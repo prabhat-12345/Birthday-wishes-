@@ -4,7 +4,7 @@ import os
 # 1. पेज की पूरी प्रीमियम VLVIP रोमांटिक सेटिंग
 st.set_page_config(page_title="Happy Birthday My Love!", page_icon="❤️", layout="centered")
 
-# 2. एडवांस CSS: फुल-स्क्रीन नियॉन ग्लो, गिरती गुलाब की पंखुड़ियाँ और साइड-बाय-साइड रोमांटिक एनीमेशन
+# 2. एडवांस CSS: रॉयल क्रिमसन रेड, लाइव गिरती गुलाब की पंखुड़ियाँ और नियॉन हार्ट फ्रेम्स
 custom_css = """
 <style>
     /* ऐप का शानदार डार्क रोमांटिक और आलीशान लव बैकग्राउंड */
@@ -18,12 +18,12 @@ custom_css = """
     .block-container {
         padding-top: 2rem !important;
         padding-bottom: 2rem !important;
-        max-width: 480px !important;
+        max-width: 450px !important;
         position: relative;
         z-index: 10;
     }
 
-    /* आसमान से धीरे-धीरे गिरने वाली असली गुलाब की पंखुड़ियाँ */
+    /* जादू 1: आसमान से धीरे-धीरे गिरने वाली असली गुलाब की पंखुड़ियाँ (Pure CSS Falling Rose Petals) */
     .rose-petals-container {
         position: absolute;
         top: 0; left: 0; width: 100%; height: 100%;
@@ -39,7 +39,8 @@ custom_css = """
         animation: petalFall linear infinite;
         box-shadow: 0 0 8px rgba(255, 0, 85, 0.5);
     }
-    .rp1 { left: 10%; width: 12px; height: 18px; animation-duration: 6s; }
+    /* अलग-अलग पंखुड़ियों की साइज और स्पीड */
+    .rp1 { left: 10%; width: 12px; height: 18px; animation-duration: 6s; animation-delay: 0s; }
     .rp2 { left: 35%; width: 16px; height: 24px; animation-duration: 8s; animation-delay: 2s; }
     .rp3 { left: 55%; width: 10px; height: 15px; animation-duration: 5s; animation-delay: 0.5s; }
     .rp4 { left: 78%; width: 14px; height: 20px; animation-duration: 7s; animation-delay: 3s; }
@@ -48,6 +49,7 @@ custom_css = """
     @keyframes petalFall {
         0% { transform: translateY(-20px) rotate(0deg); opacity: 0; }
         10% { opacity: 0.8; }
+        90% { opacity: 0.8; }
         100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
     }
 
@@ -105,45 +107,24 @@ custom_css = """
         -webkit-text-fill-color: transparent;
         animation: textShine 4s linear infinite, heartBeatGlow 2s ease-in-out infinite alternate;
     }
-
-    /* नया: फोटो के साइड में दिखने वाले शानदार रोमांटिक नियॉन टेक्स्ट इफेक्ट्स */
-    .side-text-left, .side-text-right {
-        font-family: 'Georgia', serif;
-        font-size: 1.1rem;
-        font-weight: bold;
-        line-height: 1.5;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        height: 100%;
-        margin-top: 60px;
-    }
-    .side-text-left {
-        background: linear-gradient(45deg, #ff0055, #ff80b3);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        animation: textPulse 2s ease-in-out infinite alternate;
-    }
-    .side-text-right {
-        background: linear-gradient(45deg, #FFD700, #ffcc00);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        animation: textPulse 2s ease-in-out infinite alternate-reverse;
-    }
-
-    @keyframes textPulse {
-        0% { filter: drop-shadow(0 0 2px rgba(255, 0, 85, 0.4)); transform: scale(0.97); }
-        100% { filter: drop-shadow(0 0 10px rgba(255, 0, 85, 0.8)); transform: scale(1.03); }
+    
+    @keyframes textShine {
+        0% { background-position: 0% center; }
+        100% { background-position: 200% center; }
     }
     
-    /* इमेज का नियॉन हार्टबिट फ्रेम जो बिल्कुल स्क्रीन के बीच में (Center) लॉक रहेगा */
+    @keyframes heartBeatGlow {
+        0% { filter: drop-shadow(0 0 5px rgba(255, 0, 85, 0.6)); transform: scale(1); }
+        100% { filter: drop-shadow(0 0 18px rgba(255, 215, 0, 0.8)); transform: scale(1.02); }
+    }
+    
+    /* इमेज के नियॉन फ्रेम के लिए स्टाइल */
     .stImage img {
         display: block;
-        margin: 0 auto !important;
-        max-height: 250px !important;
-        width: 100% !important;
-        max-width: 200px !important;
+        margin-left: auto;
+        margin-right: auto;
+        max-height: 270px !important;
+        width: auto !important;
         border-radius: 20px !important;
         border: 2px solid rgba(255, 0, 85, 0.5) !important;
         box-shadow: 0px 0px 25px #ff0055, 0px 0px 10px #ff80b3 !important;
@@ -173,15 +154,16 @@ custom_css = """
         -webkit-text-fill-color: transparent;
         animation: textShine 5s linear infinite;
     }
+    
+    .wish-highlight {
+        font-weight: bold;
+        background: linear-gradient(to right, #ff0055, #FFD700, #ff0055);
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: textShine 3s linear infinite;
+    }
 
-    @keyframes textShine {
-        0% { background-position: 0% center; }
-        100% { background-position: 200% center; }
-    }
-    @keyframes heartBeatGlow {
-        0% { filter: drop-shadow(0 0 5px rgba(255, 0, 85, 0.6)); }
-        100% { filter: drop-shadow(0 0 18px rgba(255, 215, 0, 0.8)); }
-    }
     @keyframes romanticFloat {
         0% { transform: translateY(0px); }
         50% { transform: translateY(-10px); }
@@ -224,31 +206,21 @@ if sender and receiver:
 
 st.markdown("<h1 class='main-title'>🎂 Happy Birthday My Love 🎂</h1>", unsafe_allow_html=True)
 
-# 5. जादुई 3-कॉलम लेआउट: फ़ोटो बीच में और दोनों तरफ शानदार एनीमेशन टेक्स्ट
-col1, col2, col3 = st.columns([1, 1.8, 1])
+# 5. आपकी वही पुरानी अपलोडेड फोटो बिना नाम बदले सीधे लोड होगी
+image_path = "images (52).jpeg"
 
-with col1:
-    # बाएँ हाथ का रोमांटिक एनिमेटेड टेक्स्ट
-    st.markdown('<div class="side-text-left">❤️<br>तुम<br>मेरी<br>जान<br>हो</div>', unsafe_allow_html=True)
-
-with col2:
-    # बिल्कुल बीच में आप दोनों की सुंदर फ़ोटो
-    image_path = "images (52).jpeg"
-    if os.path.exists(image_path):
-        st.image(image_path, use_container_width=False)
-    else:
-        st.warning("कृपया पेज को एक बार रिफ्रेश करें।")
-
-with col3:
-    # दाएँ हाथ का रोमांटिक एनिमेटेड टेक्स्ट
-    st.markdown('<div class="side-text-right">🌹<br>मेरा<br>सब<br>कुछ<br>तुम</div>', unsafe_allow_html=True)
+if os.path.exists(image_path):
+    st.image(image_path, use_container_width=False)
+else:
+    st.warning("कृपया पेज को एक बार रिफ्रेश करें।")
 
 # 6. रोमांटिक विशेज बॉक्स
 st.markdown(
     """
     <div class="wishes-container">
-        <p class="wish-text">❤️ चेहरे पर आपके रहे हमेशा नूर, खुदा कभी न करे हमसे आपको दूर... <span style="font-weight:bold; color:#FFD700;">Happy Birthday Jaan! 🌹</span></p>
-        <p class="wish-text">✨ मेरी दुनिया, मेरी धड़कन, मेरा सब कुछ सिर्फ तुम हो! हर जनम में मुझे सिर्फ तुम्हारा साथ चाहिए... <span style="font-weight:bold; color:#FFD700;">I Love You So Much! 🏹</span></p>
+        <p class="wish-text">❤️ चेहरे पर आपके रहे हमेशा नूर, खुदा कभी न करे हमसे आपको दूर... <span class="wish-highlight">Happy Birthday Jaan! 🌹</span></p>
+        <p class="wish-text">✨ मेरी दुनिया, मेरी dharkan, मेरा सब कुछ सिर्फ तुम हो! हर जनम में मुझे सिर्फ तुम्हारा साथ चाहिए... <span class="wish-highlight">I Love You So Much! 🏹</span></p>
+        <p class="wish-text" style="font-size: 0.95rem; margin-bottom: 0;">May your day be as beautiful and glowing as your smile! 🌟</p>
     </div>
     """, 
     unsafe_allow_html=True
