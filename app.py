@@ -4,7 +4,7 @@ import os
 # 1. पेज की पूरी प्रीमियम VLVIP रोमांटिक सेटिंग (No Scroll)
 st.set_page_config(page_title="Happy Birthday My Love!", page_icon="❤️", layout="centered")
 
-# 2. एडवांस ऑप्टिमाइज्ड CSS (धड़कता हुआ जादुई नियॉन लव हार्ट बॉक्स)
+# 2. एडवांस ऑप्टिमाइज्ड CSS (बड़ा आलीशान नियॉन हार्ट बॉक्स और चमकते कोट्स)
 custom_css = """
 <style>
     /* ऐप का शानदार डार्क रोमांटिक बैकग्राउंड */
@@ -100,23 +100,23 @@ custom_css = """
         width: auto !important;
     }
 
-    /* जादू: फ़ोटो के दाईं तरफ एक बड़ा धड़कता हुआ जादुई नियॉन लव हार्ट बॉक्स बनाना */
+    /* जादू: फ़ोटो के दाईं तरफ एक बड़ा, सीधा और आलीशान 3D नियॉन लव हार्ट बॉक्स */
     .stImage::after {
-        content: "11💖YRS\\A WIFE\\A BABU\\A JAAN";
+        content: "11 💖 YRS\\A OF 🌹 LOVE\\A MY 💍 WIFE\\A MY  BABU\\A MY 💞 JAAN\\A MY 🧸 LIFE";
         white-space: pre-wrap;
         position: absolute;
-        top: 15px;
+        top: -10px; /* थोड़ा ऊपर ताकि सारा टेक्स्ट अच्छे से फिट हो */
         right: -140px; /* खाली जगह को कवर करने के लिए सटीक पोजीशन */
-        width: 110px;
-        height: 110px;
+        width: 125px; /* चौड़ाई बढ़ा दी */
+        height: 125px; /* ऊँचाई बढ़ा दी */
         
-        /* कोडिंग से असली दिल (Heart Shape) बनाने का जादुई फॉर्मूला */
-        background: rgba(255, 0, 85, 0.2);
+        /* कोडिंग से बिल्कुल परफेक्ट और बड़ा सीधा दिल बनाने का फ़ॉर्मूला */
+        background: radial-gradient(circle, rgba(255, 0, 85, 0.25) 40%, rgba(15, 0, 3, 0.6) 100%);
         border: 2px solid #ff0055;
         border-radius: 50% 50% 0 50%;
         transform: rotate(-45deg);
         
-        /* दिल के अंदर के टेक्स्ट को सीधा और सुंदर करने के लिए */
+        /* दिल के अंदर सारे टेक्स्ट को बिना काटे सीधा सेट करने के लिए */
         font-family: 'Georgia', serif;
         font-size: 0.85rem;
         font-weight: bold;
@@ -126,27 +126,27 @@ custom_css = """
         align-items: center;
         justify-content: center;
         
-        /* एनीमेशन: दिल धड़केगा (Heartbeat) और रंग भी बदलेगा */
-        animation: heartPulseGlow 1.2s ease-in-out infinite alternate;
-        box-shadow: 0px 0px 20px rgba(255, 0, 85, 0.6);
+        /* एनीमेशन: बड़ा दिल धीरे-धीरे धड़केगा (Heartbeat Animation) */
+        animation: bigHeartPulse 1.5s ease-in-out infinite alternate;
+        box-shadow: 0px 0px 30px rgba(255, 0, 85, 0.7);
         z-index: 15;
     }
 
-    /* दिल के अंदर का टेक्स्ट रोटेशन ठीक करने के लिए हैक */
-    @keyframes heartPulseGlow {
+    /* बड़े दिल के अंदर टेक्स्ट और रोटेशन का स्पेशल एनीमेशन */
+    @keyframes bigHeartPulse {
         0% { 
-            transform: scale(0.95) rotate(-45deg); 
+            transform: scale(0.97) rotate(-45deg); 
             filter: drop-shadow(0 0 5px #ff0055);
             color: #ffffff;
         }
         100% { 
-            transform: scale(1.05) rotate(-45deg); 
-            filter: drop-shadow(0 0 15px #FFD700);
-            color: #FFD700; /* धड़कते समय टेक्स्ट सुनहरा चमकेगा */
+            transform: scale(1.03) rotate(-45deg); 
+            filter: drop-shadow(0 0 18px #FFD700);
+            color: #FFD700; /* धड़कते समय सारे अक्षर सुनहरे चमकेंगे */
         }
     }
 
-    /* नीचे का प्रीमियम ग्लास कोट्स बॉक्स जिसके सारे टेक्स्ट अब लाइव पानी की लहर की तरह चमकेंगे */
+    /* नीचे का प्रीमियम ग्लास कोट्स बॉक्स जिसके सारे टेक्स्ट लाइव पानी की लहर की तरह चमकेंगे */
     .wishes-container {
         background: rgba(255, 0, 85, 0.04);
         border-radius: 15px;
