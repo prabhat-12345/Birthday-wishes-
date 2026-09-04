@@ -4,7 +4,7 @@ import os
 # 1. पेज की पूरी प्रीमियम VLVIP रोमांटिक सेटिंग (मोबाइल स्क्रीन पर स्क्रॉल बार छिपाने के लिए)
 st.set_page_config(page_title="Happy Birthday My Love!", page_icon="❤️", layout="centered")
 
-# 2. एडवांस CSS: लाइटवेट नियॉन ग्लो, परफेक्ट सेंटर फोटो और एनिमेटेड लव कोट्स (No Screen Crash)
+# 2. एडवांस CSS: लाइटवेट नियॉन ग्लो, परफेक्ट सेंटर फोटो और एनिमेटेड लव कोट्स
 custom_css = """
 <style>
     /* ऐप का शानदार डार्क रोमांटिक और आलीशान लव बैकग्राउंड */
@@ -86,7 +86,7 @@ custom_css = """
         letter-spacing: 2px;
     }
 
-    /* नया: फोटो के ऊपर और नीचे चमकने वाले शानदार रोमांटिक नियॉन टेक्स्ट इफेक्ट्स */
+    /* फोटो के ऊपर और नीचे चमकने वाले शानदार रोमांटिक नियॉन टेक्स्ट बॉक्स */
     .romantic-badge {
         font-family: 'Georgia', serif;
         font-size: 1.25rem;
@@ -189,17 +189,24 @@ if sender and receiver:
 # 5. मुख्य एनिमेटेड हेडिंग
 st.markdown("<h1 class='main-title'>🎂 Happy Birthday My Love 🎂</h1>", unsafe_allow_html=True)
 
-# 6. नया: फोटो के ऊपर चमकने वाला पहला रोमांटिक नियॉन टेक्स्ट बॉक्स
+# 6. फोटो के ऊपर चमकने वाला पहला रोमांटिक नियॉन टेक्स्ट बॉक्स
 st.markdown('<div class="romantic-badge badge-left">❤️ तुम मेरी जान हो 🌹</div>', unsafe_allow_html=True)
 
-# 7. बिल्कुल बीच में आप दोनों की सुंदर फ़ोटो
-image_path = "images (52).jpeg"
-if os.path.exists(image_path):
-    st.image(image_path, use_container_width=False)
-else:
-    st.warning("कृपया पेज को एक बार रिफ्रेश करें।")
+# 7. जादू: फोल्डर में मौजूद किसी भी इमेज को ऑटोमैटिक स्कैन करके बिल्कुल बीच में लोड करना
+all_files = os.listdir(".")
+found_image = None
 
-# 8. नया: फोटो के नीचे चमकने वाला दूसरा रोमांटिक नियॉन टेक्स्ट बॉक्स
+for file in all_files:
+    if file.lower().endswith((".jpeg", ".jpg", ".png")):
+        found_image = file
+        break
+
+if found_image:
+    st.image(found_image, use_container_width=False)
+else:
+    st.error("फोटो फोल्डर में नहीं मिल सकी।")
+
+# 8. फोटो के नीचे चमकने वाला दूसरा रोमांटिक नियॉन टेक्स्ट बॉक्स
 st.markdown('<div class="romantic-badge badge-right">💞 मेरा सब कुछ तुम हो 🧸</div>', unsafe_allow_html=True)
 
 # 9. रोमांटिक विशेज बॉक्स
