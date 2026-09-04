@@ -4,7 +4,7 @@ import os
 # 1. पेज की पूरी प्रीमियम VLVIP रोमांटिक सेटिंग (No Scroll)
 st.set_page_config(page_title="Happy Birthday My Love!", page_icon="❤️", layout="centered")
 
-# 2. एडवांस ऑप्टिमाइज्ड CSS (10 कोट्स, इंग्लिश बैज और बड़ी साइड लड़ी)
+# 2. एडवांस ऑल-इन-वन एनिमेटेड CSS (10 कोट्स को लाइव नियॉन शाइनिंग देने का फॉर्मूला)
 custom_css = """
 <style>
     /* ऐप का शानदार डार्क रोमांटिक बैकग्राउंड */
@@ -20,7 +20,7 @@ custom_css = """
         max-width: 450px !important;
     }
     
-    /* मुख्य चमकती हेडिंग */
+    /* मुख्य चमकती हेडिंग जो लगातार रंग बदलेगी */
     .main-title {
         font-family: 'Georgia', serif;
         text-align: center;
@@ -100,15 +100,15 @@ custom_css = """
         width: auto !important;
     }
 
-    /* फ़ोटो के दाईं तरफ 11 साल का सफर + WIFE, BABU, JAAN, QUEEN की बड़ी प्रीमियम लड़ी */
+    /* फ़ोटो के दाईं तरफ की बड़ी प्रीमियम नियॉन लड़ी */
     .stImage::after {
         content: "11 💖 YEARS\\A OF 🌹 LOVE\\A MY 💍 WIFE\\A MY  BABU\\A MY 💞 JAAN\\A MY 👑 QUEEN\\A MY 🧸 LIFE";
         white-space: pre-wrap;
         position: absolute;
-        top: -5px; /* ऊपर सरका दिया ताकि ज़्यादा टेक्स्ट फिट हो सके */
+        top: -5px;
         right: -135px;
         font-family: 'Georgia', serif;
-        font-size: 0.95rem; /* थोड़ा छोटा किया ताकि स्क्रीन से बाहर न जाए */
+        font-size: 0.95rem;
         font-weight: bold;
         line-height: 1.8;
         text-align: center;
@@ -124,33 +124,45 @@ custom_css = """
         100% { transform: scale(1.02); filter: drop-shadow(0 0 12px #ff0055); }
     }
 
-    /* नीचे का प्रीमियम लव कोट्स बॉक्स (10 शायरियाँ) */
+    /* जादू: नीचे का प्रीमियम ग्लास कोट्स बॉक्स जिसके सारे टेक्स्ट अब लाइव पानी की लहर की तरह चमकेंगे */
     .wishes-container {
-        background: rgba(255, 255, 255, 0.03);
+        background: rgba(255, 0, 85, 0.04);
         border-radius: 15px;
         padding: 15px;
         margin-top: 15px;
-        border: 1px solid rgba(255, 0, 85, 0.15);
-        box-shadow: 0px 0px 20px rgba(255, 0, 85, 0.15);
-        text-align: left; /* कोट्स पढ़ने में आसानी के लिए लेफ्ट अलाइन */
+        border: 1px solid rgba(255, 0, 85, 0.2);
+        box-shadow: 0px 0px 25px rgba(255, 0, 85, 0.15);
+        text-align: left;
     }
+    
+    /* हर एक विश (Quote) का टेक्स्ट लाइव एनिमेटेड ग्रेडिएंट के साथ चमकेगा */
     .wish-text {
         font-family: 'Georgia', serif;
-        color: #ffffff;
         font-size: 1.05rem;
         line-height: 1.6;
         margin-bottom: 12px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        border-bottom: 1px solid rgba(255, 0, 85, 0.1);
         padding-bottom: 8px;
+        background: linear-gradient(to right, #ffffff, #ff80b3, #ffccff, #ffffff);
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: textShine 6s linear infinite;
     }
+    
     .wish-text:last-child {
         border-bottom: none;
         margin-bottom: 0;
     }
+    
+    /* मुख्य हाइलाइट्स (जैसे नंबरिंग और इंग्लिश शब्द) सोने की तरह लाइव चमकेंगे */
     .wish-highlight {
-        color: #FFD700;
         font-weight: bold;
-        text-shadow: 0px 0px 5px rgba(255, 215, 0, 0.5);
+        background: linear-gradient(to right, #FFD700, #ffaa00, #FFD700);
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: textShine 3s linear infinite;
     }
 
     @keyframes romanticFloat {
@@ -181,7 +193,6 @@ if sender and receiver:
 
 st.markdown("<h1 class='main-title'>🎂 Happy Birthday My Love 🎂</h1>", unsafe_allow_html=True)
 
-# इंग्लिश में बदला हुआ ऊपर का बैज
 st.markdown('<div class="romantic-badge badge-left">❤️ YOU ARE MY LIFE 🌹</div>', unsafe_allow_html=True)
 
 # 4. फोटो लोड होना
@@ -194,10 +205,9 @@ for file in all_files:
 if found_image:
     st.image(found_image, use_container_width=False)
 
-# इंग्लिश में बदला हुआ नीचे का बैज
 st.markdown('<div class="romantic-badge badge-right">💞 YOU ARE MY EVERYTHING 🧸</div>', unsafe_allow_html=True)
 
-# 5. पूरे 10 सबसे गहरे और प्रीमियम रोमांटिक कोट्स बॉक्स
+# 5. पूरे 10 जादुई और शाइनिंग रोमांटिक कोट्स बॉक्स (अब पूरी तरह लाइव कलर्ड एनिमेटेड हैं)
 st.markdown(
     """
     <div class="wishes-container">
@@ -210,7 +220,7 @@ st.markdown(
         <p class="wish-text">👑 <span class="wish-highlight">7. Queen of My Heart:</span> "You are my today, my tomorrow, and my forever. Happy Birthday to the queen of my world!" 💖</p>
         <p class="wish-text">💞 <span class="wish-highlight">8. रूह का रिश्ता:</span> 11 साल में वक्त बदला, दुनिया बदली, पर तुम्हारे लिए मेरी आँखों में जो मोहब्बत थी, वो आज भी वैसी ही जवान है। 💍</p>
         <p class="wish-text">🪈 <span class="wish-highlight">9. My Lifeline:</span> "Every single day spent with you feels like a blessing. Thank you for being my strength and my happiness." 🕊️</p>
-        <p class="wish-text">🎯 <span class="wish-highlight">10. आखिरी ख्वाहिश:</span> हर जनम में मुझे सिर्फ और सिर्फ तुम्हारा ही साथ चाहिए, तुम ही मेरी पहली और आखिरी मोहब्बत हो जानू! 🥰</p>
+        <p class="wish-text">🎯 <span class="wish-highlight">10. आखिरी ख्वाहिश:</span> हर जनम में मुझे सिर्फ और सिर्फ तुम्हारा ही साथ चाहिए, तुम ही मेरी पहली and आखिरी मोहब्बत हो जानू! 🥰</p>
     </div>
     """, 
     unsafe_allow_html=True
