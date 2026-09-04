@@ -4,7 +4,7 @@ import os
 # 1. पेज की पूरी प्रीमियम VLVIP रोमांटिक सेटिंग (No Scroll)
 st.set_page_config(page_title="Happy Birthday My Love!", page_icon="❤️", layout="centered")
 
-# 2. पूरी तरह ऑप्टिमाइज्ड लाइटवेट CSS (फोटो के बगल में छोटा एनिमेटेड टेक्स्ट)
+# 2. पूरी तरह ऑप्टिमाइज्ड लाइटवेट CSS (फोटो के बगल की खाली जगह को भरने के लिए)
 custom_css = """
 <style>
     /* ऐप का शानदार डार्क रोमांटिक बैकग्राउंड */
@@ -88,7 +88,10 @@ custom_css = """
     .badge-left { color: #ff0055; text-shadow: 0 0 8px #ff0055; }
     .badge-right { color: #FFD700; text-shadow: 0 0 8px #FFD700; }
     
-    /* इमेज का नियॉन हार्टबिट फ्रेम जो बाईं तरफ एकदम सही सेट रहेगा */
+    /* इमेज का नियॉन हार्टबिट फ्रेम जो बिल्कुल सही सेट रहेगा */
+    .stImage {
+        position: relative;
+    }
     .stImage img {
         border-radius: 20px !important;
         border: 2px solid rgba(255, 0, 85, 0.5) !important;
@@ -98,30 +101,28 @@ custom_css = """
         width: auto !important;
     }
 
-    /* जादू: बिना कॉलम के सीधे HTML फॉर्मूले से फोटो के दाईं तरफ एनिमेटेड टेक्स्ट चिपकाना */
-    .stImage {
-        position: relative;
-    }
+    /* जादू: बिना कॉलम के सीधे HTML फॉर्मूले से फोटो के दाईं तरफ की खाली जगह को पूरी तरह भरना */
     .stImage::after {
-        content: "L💖VE\\A J💖AN\\A M✨Y\\A Q👑UEEN";
+        content: "❤️ LOVE ❤️\\A 🌹 JAAN 🌹\\A 👑 QUEEN 👑\\A 🧸 MY LIFE 🧸";
         white-space: pre-wrap;
         position: absolute;
-        top: 25px;
-        right: -85px; /* फोटो के ठीक बगल की खाली जगह पर सेट */
+        top: 20px;
+        right: -130px; /* खाली जगह को पूरी तरह कवर करने के लिए पोजीशन फिक्स */
         font-family: 'Georgia', serif;
-        font-size: 1.15rem;
+        font-size: 1.1rem;
         font-weight: bold;
-        line-height: 1.8;
+        line-height: 2.2; /* लाइनों के बीच सही गैप */
         text-align: center;
-        background: linear-gradient(45deg, #ff0055, #FFD700);
+        background: linear-gradient(45deg, #ff0055, #FFD700, #ff0055);
+        background-size: 200% auto;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        animation: sideTextPulse 1.5s ease-in-out infinite alternate;
+        animation: sideTextPulse 1.5s ease-in-out infinite alternate, textShine 4s linear infinite;
     }
 
     @keyframes sideTextPulse {
-        0% { transform: scale(0.95); filter: drop-shadow(0 0 2px #ff0055); }
-        100% { transform: scale(1.05); filter: drop-shadow(0 0 8px #ff0055); }
+        0% { transform: scale(0.98); filter: drop-shadow(0 0 2px #ff0055); }
+        100% { transform: scale(1.02); filter: drop-shadow(0 0 12px #ff0055); }
     }
 
     /* नीचे का प्रीमियम लव कोट्स बॉक्स */
@@ -171,7 +172,7 @@ st.markdown("<h1 class='main-title'>🎂 Happy Birthday My Love 🎂</h1>", unsa
 
 st.markdown('<div class="romantic-badge badge-left">❤️ तुम मेरी जान हो 🌹</div>', unsafe_allow_html=True)
 
-# 4. फोटो लोड होना (यह बाईं तरफ ही रहेगी, लेकिन इसके बगल में जादुई टेक्स्ट छप जाएगा)
+# 4. फोटो लोड होना (यह अपनी जगह पर रहेगी, और दाईं तरफ की पूरी खाली जगह सुंदर डिज़ाइन से भर जाएगी)
 all_files = os.listdir(".")
 found_image = None
 for file in all_files:
@@ -188,7 +189,7 @@ st.markdown(
     """
     <div class="wishes-container">
         <p class="wish-text">❤️ चेहरे पर आपके रहे हमेशा नूर, खुदा कभी न करे हमसे आपको दूर... <span style="color:#FFD700; font-weight:bold;">Happy Birthday Jaan! 🌹</span></p>
-        <p class="wish-text" style="color:#ff80b3;">✨ मेरी दुनिया, मेरी धड़कन, मेरा सब कुछ सिर्फ तुम हो! हर जनम में मुझे सिर्फ तुम्हारा साथ चाहिए... 🥰</p>
+        <p class="wish-text" style="color:#ff80b3;">✨ मेरी दुनिया, मेरी धड़कन,  मेरा सब कुछ सिर्फ तुम हो! हर जनम में मुझे सिर्फ तुम्हारा साथ चाहिए... 🥰</p>
     </div>
     """, 
     unsafe_allow_html=True
