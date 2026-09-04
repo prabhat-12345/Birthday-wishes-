@@ -100,23 +100,19 @@ custom_css = """
         width: auto !important;
     }
 
-    /* जादू: फ़ोटो के दाईं तरफ एक बड़ा, सीधा और मोटी बाउंड्री वाला धड़कता हुआ लव हार्ट बॉक्स */
+    /* फ़ोटो के दाईं तरफ एक बड़ा, सीधा और मोटी बाउंड्री वाला धड़कता हुआ लव हार्ट बॉक्स */
     .stImage::after {
         content: "11 💖 YRS\\A OF 🌹 LOVE\\A MY 💍 WIFE\\A MY  BABU\\A MY 💞 JAAN\\A MY 🧸 LIFE";
         white-space: pre-wrap;
         position: absolute;
         top: -10px;
-        right: -140px; /* खाली जगह को कवर करने के लिए सटीक पोजीशन */
+        right: -140px;
         width: 125px;
         height: 125px;
-        
-        /* मोटी बाउंड्री (4px solid) और सीधा रखने का सॉलिड फ़ॉर्मूला */
         background: radial-gradient(circle, rgba(255, 0, 85, 0.35) 40%, rgba(15, 0, 3, 0.7) 100%);
-        border: 4px solid #ff0055; /* बाउंड्री और मोटी कर दी */
+        border: 4px solid #ff0055;
         border-radius: 50% 50% 0 50%;
         transform: rotate(-45deg);
-        
-        /* दिल के अंदर सारे टेक्स्ट को बिना काटे सीधा सेट करने के लिए */
         font-family: 'Georgia', serif;
         font-size: 0.85rem;
         font-weight: bold;
@@ -125,27 +121,25 @@ custom_css = """
         display: flex;
         align-items: center;
         justify-content: center;
-        
-        /* एनीमेशन: बड़ा दिल तेजी से धड़केगा (Heartbeat Animation) */
         animation: thickHeartPulse 1.2s ease-in-out infinite alternate;
         box-shadow: 0px 0px 35px #ff0055, inset 0px 0px 15px #ff0055;
         z-index: 15;
     }
 
-    /* जादू 2: दिल के आर-पार निकलने वाला असली लव तीर (Arrow Animation Effect) */
+    /* दिल के आर-पार निकलने वाला असली लव तीर */
     .stImage::before {
-        content: "💘────────>"; /* कोडिंग का लंबा तीर */
+        content: "💘────────>";
         position: absolute;
         top: 50px;
-        right: -170px; /* दिल के पीछे से आर-पार सेट */
+        right: -170px;
         font-size: 1.6rem;
         font-weight: bold;
         background: linear-gradient(45deg, #FFD700, #ffaa00);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         text-shadow: 0 0 10px #ffaa00;
-        z-index: 14; /* दिल के ठीक पीछे रखने के लिए */
-        transform: rotate(-15deg); /* हल्का सा तिरछा तीर */
+        z-index: 14;
+        transform: rotate(-15deg);
         animation: arrowGlow 1.2s ease-in-out infinite alternate;
     }
 
@@ -154,7 +148,6 @@ custom_css = """
         100% { filter: drop-shadow(0 0 8px #FFD700); }
     }
 
-    /* मोटी बाउंड्री वाले दिल के अंदर का स्पेशल हार्टबीट एनीमेशन */
     @keyframes thickHeartPulse {
         0% { 
             transform: scale(0.95) rotate(-45deg); 
@@ -164,7 +157,7 @@ custom_css = """
         100% { 
             transform: scale(1.05) rotate(-45deg); 
             box-shadow: 0px 0px 35px #ff0055, 0px 0px 15px #FFD700;
-            color: #FFD700; /* धड़कते समय सारे अक्षर सुनहरे चमकेंगे */
+            color: #FFD700;
         }
     }
 
@@ -179,7 +172,6 @@ custom_css = """
         text-align: left;
     }
     
-    /* कोट्स टेक्स्ट एनीमेशन */
     .wish-text {
         font-family: 'Georgia', serif;
         font-size: 1.05rem;
@@ -217,7 +209,7 @@ custom_css = """
 """
 st.markdown(custom_css, unsafe_allow_html=True)
 
-# 3. नाम प्रॉम्ट设置
+# 3. नाम प्रॉम्ट सेटिंग
 query_params = st.query_params
 sender = query_params.get("name", "PRABHAT")
 receiver = query_params.get("to", "LAXMI")
@@ -261,4 +253,9 @@ st.markdown(
         <p class="wish-text">💫 <span class="wish-highlight">5. Deepest Love:</span> "In all the world, there is no heart for me like yours. In all the world, there is no love for you like mine." 🌟</p>
         <p class="wish-text">🧸 <span class="wish-highlight">6. Meri Mannat:</span> खुदा से जब भी मैंने कोई दुआ मांगी है, हर दुआ में सिर्फ और सिर्फ तुम्हारी लंबी उम्र और खुशी मांगी है। 🎂</p>
         <p class="wish-text">👑 <span class="wish-highlight">7. Queen of My Heart:</span> "You are my today, my tomorrow, and my forever. Happy Birthday to the queen of my world!" 💖</p>
-        
+        <p class="wish-text">💞 <span class="wish-highlight">8. Rooh Ka Rishta:</span> 11 साल में वक्त बदला, दुनिया बदली, पर तुम्हारे लिए मेरी आँखों में जो मोहब्बत थी, वो आज भी वैसी ही जवान है। 💍</p>
+        <p class="wish-text">🪈 <span class="wish-highlight">9. My Lifeline:</span> "Every single day spent with you feels like a blessing. Thank you for being my strength and my happiness." 🕊️</p>
+        <p class="wish-text">🎯 <span class="wish-highlight">10. Aakhiri Khwahish:</span> हर जनम में मुझे सिर्फ और सिर्फ तुम्हारा ही साथ चाहिए, तुम ही मेरी पहली और आखिरी मोहब्बत हो जानू! 🥰</p>
+    </div>
+    """, 
+    
