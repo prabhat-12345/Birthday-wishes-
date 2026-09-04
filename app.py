@@ -4,42 +4,21 @@ import os
 # 1. पेज की पूरी प्रीमियम VLVIP रोमांटिक सेटिंग (No Scroll)
 st.set_page_config(page_title="Happy Birthday My Love!", page_icon="❤️", layout="centered")
 
-# 2. एडवांस और लाइटवेट CSS: साइड-बाय-साइड लेआउट, गुलाबी नियॉन पार्टिकल्स और एनिमेटेड कोट्स
+# 2. पूरी तरह ऑप्टिमाइज्ड लाइटवेट CSS (फोटो के बगल में छोटा एनिमेटेड टेक्स्ट)
 custom_css = """
 <style>
-    /* ऐप का शानदार डार्क रोमांटिक और आलीशान लव बैकग्राउंड */
+    /* ऐप का शानदार डार्क रोमांटिक बैकग्राउंड */
     .stApp {
-        background: linear-gradient(135deg, #0f0003 0%, #200005 50%, #3a000a 100%) !important;
+        background: linear-gradient(135deg, #0f0003 0%, #2a0007 50%, #4d004f 100%) !important;
         color: #ffffff;
         overflow: hidden !important;
-        position: relative;
-    }
-    
-    /* जादुई गुलाबी नियॉन पार्टिकल्स (Romantic Pink Glow) - यह क्रैश नहीं होगा */
-    .stApp::before {
-        content: "";
-        position: absolute;
-        top: 0; left: 0; width: 100%; height: 100%;
-        background-image: 
-            radial-gradient(#ff4d94, rgba(255,77,148,.2) 2px, transparent 30px),
-            radial-gradient(#ff0055, rgba(255,0,85,.15) 1px, transparent 25px);
-        background-size: 300px 350px, 200px 250px;
-        animation: pinkFloat 8s linear infinite;
-        opacity: 0.5;
-        z-index: 1;
-    }
-    @keyframes pinkFloat {
-        from { transform: translateY(0); }
-        to { transform: translateY(-350px); }
     }
     
     /* मुख्य कंटेनर मोबाइल स्क्रीन के लिए */
     .block-container {
-        padding-top: 2rem !important;
+        padding-top: 2.2rem !important;
         padding-bottom: 0rem !important;
         max-width: 450px !important;
-        position: relative;
-        z-index: 10;
     }
     
     /* मुख्य चमकती हेडिंग */
@@ -93,24 +72,21 @@ custom_css = """
         display: inline-block;
     }
 
-    /* नया: फोटो के बगल में खाली जगह पर दिखने वाले छोटे रोमांटिक नियॉन वर्ड्स */
-    .side-love-text {
+    /* फोटो के ऊपर और नीचे चमकने वाले शानदार रोमांटिक नियॉन टेक्स्ट बॉक्स */
+    .romantic-badge {
         font-family: 'Georgia', serif;
-        font-size: 1.2rem;
+        font-size: 1.25rem;
         font-weight: bold;
-        line-height: 1.8;
         text-align: center;
-        margin-top: 30px;
-        background: linear-gradient(45deg, #ff0055, #FFD700);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        animation: textPulse 1.5s ease-in-out infinite alternate;
+        margin: 10px auto;
+        padding: 5px 15px;
+        border-radius: 50px;
+        background: rgba(255, 0, 85, 0.1);
+        border: 1px solid rgba(255, 0, 85, 0.3);
+        width: fit-content;
     }
-    
-    @keyframes textPulse {
-        0% { transform: scale(0.95); filter: drop-shadow(0 0 2px #ff0055); }
-        100% { transform: scale(1.05); filter: drop-shadow(0 0 10px #ff0055); }
-    }
+    .badge-left { color: #ff0055; text-shadow: 0 0 8px #ff0055; }
+    .badge-right { color: #FFD700; text-shadow: 0 0 8px #FFD700; }
     
     /* इमेज का नियॉन हार्टबिट फ्रेम जो बाईं तरफ एकदम सही सेट रहेगा */
     .stImage img {
@@ -120,6 +96,32 @@ custom_css = """
         animation: romanticFloat 4s ease-in-out infinite;
         max-height: 240px !important;
         width: auto !important;
+    }
+
+    /* जादू: बिना कॉलम के सीधे HTML फॉर्मूले से फोटो के दाईं तरफ एनिमेटेड टेक्स्ट चिपकाना */
+    .stImage {
+        position: relative;
+    }
+    .stImage::after {
+        content: "L💖VE\\A J💖AN\\A M✨Y\\A Q👑UEEN";
+        white-space: pre-wrap;
+        position: absolute;
+        top: 25px;
+        right: -85px; /* फोटो के ठीक बगल की खाली जगह पर सेट */
+        font-family: 'Georgia', serif;
+        font-size: 1.15rem;
+        font-weight: bold;
+        line-height: 1.8;
+        text-align: center;
+        background: linear-gradient(45deg, #ff0055, #FFD700);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: sideTextPulse 1.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes sideTextPulse {
+        0% { transform: scale(0.95); filter: drop-shadow(0 0 2px #ff0055); }
+        100% { transform: scale(1.05); filter: drop-shadow(0 0 8px #ff0055); }
     }
 
     /* नीचे का प्रीमियम लव कोट्स बॉक्स */
@@ -167,33 +169,19 @@ if sender and receiver:
 
 st.markdown("<h1 class='main-title'>🎂 Happy Birthday My Love 🎂</h1>", unsafe_allow_html=True)
 
-# 4. फोटो बाईं तरफ रहेगी और दाईं तरफ छोटे-छोटे चमकते हुए लव वर्ड्स एनिमेट होंगे (लाइटवेट, 0% क्रैश चांस)
-col1, col2 = st.columns([1.4, 0.8])
+st.markdown('<div class="romantic-badge badge-left">❤️ तुम मेरी जान हो 🌹</div>', unsafe_allow_html=True)
 
-with col1:
-    # बाईं तरफ लक्ष्मी भाभी की फोटो
-    all_files = os.listdir(".")
-    found_image = None
-    for file in all_files:
-        if file.lower().endswith((".jpeg", ".jpg", ".png")):
-            found_image = file
-            break
-    if found_image:
-        st.image(found_image, use_container_width=False)
+# 4. फोटो लोड होना (यह बाईं तरफ ही रहेगी, लेकिन इसके बगल में जादुई टेक्स्ट छप जाएगा)
+all_files = os.listdir(".")
+found_image = None
+for file in all_files:
+    if file.lower().endswith((".jpeg", ".jpg", ".png")):
+        found_image = file
+        break
+if found_image:
+    st.image(found_image, use_container_width=False)
 
-with col2:
-    # दाईं तरफ की खाली जगह पर चमकते हुए छोटे लव वर्ड्स
-    st.markdown(
-        """
-        <div class="side-love-text">
-            ❤️ I Luv U<br>
-            👑 My Queen<br>
-            🧸 My Jaan<br>
-            💞 जानू 🌹
-        </div>
-        """, 
-        unsafe_allow_html=True
-    )
+st.markdown('<div class="romantic-badge badge-right">💞 मेरा सब कुछ तुम हो 🧸</div>', unsafe_allow_html=True)
 
 # 5. रोमांटिक विशेज बॉक्स
 st.markdown(
@@ -205,3 +193,6 @@ st.markdown(
     """, 
     unsafe_allow_html=True
 )
+
+# 6. पुराना नॉर्मल सेफ स्नोफॉल (क्रैश-फ्री)
+st.snow()
